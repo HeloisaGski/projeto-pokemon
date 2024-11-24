@@ -13,9 +13,11 @@ return new class extends Migration
     {
         Schema::create('pokemon', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('type');
+            $table->string('name', 200);
+            $table->string('type', 100);
             $table->integer('power');
+            $table->text('image');
+            $table->foreignId('coach_id')->references('id')->on('coaches');
             $table->timestamps();
         });
     }

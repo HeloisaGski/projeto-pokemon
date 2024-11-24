@@ -1,4 +1,5 @@
 @extends('layouts.base')
+@can('create', App\Models\Pokemon::class)
 
 @section('content')
 <div class="max-w-screen-xl mx-auto p-5 sm:p-10 md:p-16">
@@ -7,7 +8,7 @@
         <div class="rounded overflow-hidden shadow-lg">
             <div class="relative">
                 <img class="w-full"
-                    src="https://cdn.ome.lt/qyFc-3bXb4b863CxEXHN7_MhXvw=/770x0/smart/uploads/conteudo/fotos/Pokemon_Mewtwo.jpg" 
+                    src="{{ asset($entity->image)}}" alt="{{$entity->name}}"
                     alt="{{$entity->name}}">
                 <div
                     class="hover:bg-transparent transition duration-300 absolute bottom-0 top-0 right-0 left-0 bg-gray-900 opacity-25">
@@ -20,6 +21,16 @@
                     class="text-sm absolute top-0 right-0 bg-white px-4 text-dark rounded-full h-16 w-16 flex flex-col items-center justify-center mt-3 mr-3 hover:bg-white hover:text-red-700 transition duration-500 ease-in-out">
                     <span class="font-bold">{{$entity->power}}</span>
                     <small>Power</small>
+                </div>
+                <div
+                    class="text-sm absolute top-0 right-50 bg-white px-4 text-dark rounded-full h-16 w-16 flex flex-col items-center justify-center mt-3 mr-3 hover:bg-white hover:text-red-700 transition duration-500 ease-in-out">
+                    @if (isset($entity->coach))
+                        <span class="font-bold">{{$entity->coach->name}}</span>
+                    @else
+                        <span class="font-bold">Sem Treinador</span>
+
+                    @endif
+                    <small>Coach</small>
                 </div>
             </div>
             <div class="px-6 py-4">
