@@ -1,6 +1,6 @@
 @extends('layouts.base')
-@can('create', App\Models\Pokemon::class)
 
+@can('create', App\Models\Pokemon::class)
 @section('content')
 <div class="max-w-screen-xl mx-auto p-5 sm:p-10 md:p-16">
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
@@ -8,8 +8,7 @@
         <div class="rounded overflow-hidden shadow-lg">
             <div class="relative">
                 <img class="w-full"
-                    src="{{ asset($entity->image)}}" alt="{{$entity->name}}"
-                    alt="{{$entity->name}}">
+                    src="{{ asset($entity->image)}}" alt="{{$entity->name}}">
                 <div
                     class="hover:bg-transparent transition duration-300 absolute bottom-0 top-0 right-0 left-0 bg-gray-900 opacity-25">
                 </div>
@@ -28,7 +27,6 @@
                         <span class="font-bold">{{$entity->coach->name}}</span>
                     @else
                         <span class="font-bold">Sem Treinador</span>
-
                     @endif
                     <small>Coach</small>
                 </div>
@@ -57,3 +55,4 @@
     </div>
 </div>
 @endsection
+@endcan

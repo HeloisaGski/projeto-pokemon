@@ -6,7 +6,7 @@
     <title>Pokemon</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-900">
+<body class="bg-purple-900">
     
 
 <nav class="bg-white border-gray-200 dark:bg-gray-900">
@@ -39,7 +39,7 @@
   </div>
 </nav>
 
-    <div class="container bg-gray-900	">
+    <div class="container bg-purple-900	">
         @yield('content')
 
     </div>

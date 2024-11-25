@@ -10,19 +10,25 @@ Route::get('/', function () {
 });
 
 
-Route::get('products', [PokemonController::class, 'index']);
-Route::get('products/create', [PokemonController::class, 'create']);
-Route::post('products', [PokemonController::class, 'store']);
-Route::get('products/{id}/edit', [PokemonController::class, 'edit']);
-Route::put('products/{id}', [PokemonController::class, 'update']);
-Route::delete('products/{id}', [PokemonController::class, 'destroy']);
+Route::get('pokemon', [PokemonController::class, 'index']) 
+->middleware(['auth', 'verified'])->name('index-pokemon');
+Route::get('pokemon/create', [PokemonController::class, 'create'])
+->middleware(['auth', 'verified'])->name('create-pokemon');
+Route::post('pokemon', [PokemonController::class, 'store'])
+->middleware(['auth', 'verified'])->name('store-pokemon');
+Route::get('pokemon/{id}/edit', [PokemonController::class, 'edit'])
+->middleware(['auth', 'verified'])->name('edit-pokemon');
+Route::put('pokemon/{id}', [PokemonController::class, 'update'])
+->middleware(['auth', 'verified'])->name('update-pokemon');
+Route::delete('pokemon/{id}', [PokemonController::class, 'destroy'])
+->middleware(['auth', 'verified'])->name('destroy-pokemon');
 
-Route::get('products', [CoachController::class, 'index']);
-Route::get('products/create', [CoachController::class, 'create']);
-Route::post('products', [CoachController::class, 'store']);
-Route::get('products/{id}/edit', [CoachController::class, 'edit']);
-Route::put('products/{id}', [CoachController::class, 'update']);
-Route::delete('products/{id}', [CoachController::class, 'destroy']);
+Route::get('coaches', [CoachController::class, 'index']);
+Route::get('coaches/create', [CoachController::class, 'create']);
+Route::post('coaches', [CoachController::class, 'store']);
+Route::get('coaches/{id}/edit', [CoachController::class, 'edit']);
+Route::put('coaches/{id}', [CoachController::class, 'update']);
+Route::delete('coaches/{id}', [CoachController::class, 'destroy']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

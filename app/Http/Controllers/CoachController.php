@@ -7,11 +7,14 @@ use Illuminate\Http\Request;
 
 class CoachController extends Controller
 {
+
+    //img linked coach
     public function index()
     {
-        $coaches = Coach::all();
+        $coaches = Coach::with('pokemon')->get();
         return view('coaches.index', compact('coaches'));
     }
+    
 
     public function create()
     {
