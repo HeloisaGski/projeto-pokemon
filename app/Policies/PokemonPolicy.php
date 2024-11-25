@@ -10,7 +10,8 @@ class PokemonPolicy
 {
     public function create(?User $user, Pokemon $pokemon): bool
     {
-        return !is_null($user);
+        //return !is_null($user);
+        return false;
     }
 
     public function delete(?User $user, Pokemon $pokemon): bool
